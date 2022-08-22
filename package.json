@@ -1,0 +1,37 @@
+{
+  "name": "head-in-a-bowl",
+  "version": "1.0.0",
+  "description": "a simple smart contract project to create some pxlbot style images from other NFTs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pxlbots/head-in-a-bowl.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pxlbots/head-in-a-bowl/issues"
+  },
+  "homepage": "https://github.com/pxlbots/head-in-a-bowl#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.13",
+    "@openzeppelin/contracts": "^4.7.3",
+    "@typechain/ethers-v5": "^10.0.0",
+    "@typechain/hardhat": "^6.1.2",
+    "@types/chai": "^4.3.1",
+    "dotenv": "^16.0.1",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "^5.5.4",
+    "hardhat": "^2.10.2",
+    "hardhat-deploy": "^0.11.12",
+    "prettier": "^2.7.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.24",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
+}
