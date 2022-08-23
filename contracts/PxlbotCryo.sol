@@ -20,6 +20,7 @@ contract PxlbotCryo is ERC721, Ownable, Pausable {
   mapping(uint256 => string) image_uris;
   address[] requests_contracts;
   uint256[] requests_tokens;
+  uint256 public total_requests;
   uint256 public total_tokens;
   string baseURI;
 
@@ -30,6 +31,12 @@ contract PxlbotCryo is ERC721, Ownable, Pausable {
     uint256 tokenId = total_tokens;
     _safeMint(owner, tokenId);
     image_uris[tokenId] = image_uri;
+  }
+
+  function burn(uint256 tokenId) public onlyOwner {
+    total_tokens--;
+    delete image_uris[tokenId];
+    _burn(tokenId);
   }
 
   function tokenURI(uint256 tokenId)
@@ -87,7 +94,18 @@ contract PxlbotCryo is ERC721, Ownable, Pausable {
     );
     requests_contracts.push(_contract);
     requests_tokens.push(tokenId);
+    total_requests = requests_contracts.length;
     emit Requested(_contract, tokenId, requests_tokens.length - 1);
+  }
+
+  function getNextRequest()
+    external
+    view
+    onlyOwner
+    returns (address _contract, uint256 token_id)
+  {
+    require(total_requests > 0, 'No requests to process');
+    return (requests_contracts[0], requests_tokens[0]);
   }
 
   function fulfill(uint256 request_id, string memory image_uri)
@@ -109,6 +127,7 @@ contract PxlbotCryo is ERC721, Ownable, Pausable {
       requests_contracts.length - 1
     ];
     requests_contracts.pop();
+    total_requests = requests_contracts.length;
     emit Fulfilled(_contract, tokenId, request_id);
   }
 

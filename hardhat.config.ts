@@ -9,7 +9,7 @@ Dotenv.config()
 // load tasks
 const glob = require('glob')
 const path = require('path')
-glob.sync('./tasks/**/*.js').forEach(function (file: string) {
+glob.sync('./tasks/**/*.ts').forEach(function (file: string) {
   require(path.resolve(file))
 })
 
@@ -42,8 +42,8 @@ const config: HardhatUserConfig = {
   },
   networks: {
     ganache: {
-      chainId: 1337,
-      url: process.env.GAME_LOCAL_RPC || 'HTTP://127.0.0.1:7546',
+      chainId: Number(process.env.COLLECTIBLE_LOCAL_CHAIN),
+      url: process.env.COLLECTIBLE_LOCAL_RPC,
     },
     goerli: {
       live: true,
@@ -57,6 +57,9 @@ const config: HardhatUserConfig = {
       url: 'https://eth-mainnet.g.alchemy.com/v2/t2hsx_n48xxWThAVNJVHxZk-KtDtBDme',
       accounts: [process.env.ETH_PRIVATE_KEY],
     },
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY,
   },
 }
 

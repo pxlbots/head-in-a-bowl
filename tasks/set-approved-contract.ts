@@ -1,3 +1,5 @@
+import { task } from 'hardhat/config'
+
 const { types } = require('hardhat/config')
 const { getContract } = require('./utils')
 require('@nomiclabs/hardhat-ethers')
@@ -10,7 +12,7 @@ task('set-approved-contract', 'Sets the status of a contract')
     true,
     types.boolean,
   )
-  .setAction(async (args) => {
+  .setAction(async (args: any) => {
     const hre = require('hardhat')
     let merge = await getContract('PxlbotCryo', hre, 'deployer')
     let result = await merge.setApprovedContract(args.address, args.status)
