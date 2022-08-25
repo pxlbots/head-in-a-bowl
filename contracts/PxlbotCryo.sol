@@ -34,7 +34,6 @@ contract PxlbotCryo is ERC721, Ownable, Pausable {
   }
 
   function burn(uint256 tokenId) public onlyOwner {
-    total_tokens--;
     delete image_uris[tokenId];
     _burn(tokenId);
   }
@@ -48,7 +47,7 @@ contract PxlbotCryo is ERC721, Ownable, Pausable {
   {
     string memory metadata = string(
       abi.encodePacked(
-        '{"name": "Pxlbot Merge #',
+        '{"name": "Pxlbot Cryo #',
         tokenId.toString(),
         '", "description": "The robot uprising is smaller than you think.", ',
         '"image": "',
