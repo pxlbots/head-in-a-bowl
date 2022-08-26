@@ -74,11 +74,7 @@ contract PxlbotCryo is ERC721, Ownable, Pausable {
     return baseURI;
   }
 
-  function request(address _contract, uint256 tokenId)
-    external
-    payable
-    whenNotPaused
-  {
+  function request(address _contract, uint256 tokenId) external whenNotPaused {
     require(
       fulfilled[_contract][tokenId] == false,
       'This merge has already been generated.'
