@@ -25,3 +25,4 @@ artifacts
 
 /deployments
 /manifests
+.DS_Store
