@@ -3,8 +3,8 @@ a simple smart contract project to create some pxlbot style images from other NF
 
 ## Setup/Installation
 * After cloning project, run `npm install`
-* Download artifacts/cache [here](https://drive.google.com/file/d/1YH0VRJxmKO3UzWR7_WxJ3jTtFe7W2ki2/view?usp=sharing)
- * These must go in the root level of the project
+* Download deployments folder [here](https://drive.google.com/file/d/1Efj8QbeIcWVbHMWXu1F_FvfKO8g7M65B/view?usp=sharing)
+ * This folder must go in the root level of the project
 
 ### Set Environment Variables
 Create a .env file in the root of your project. Ensure that it has the following variables set:
