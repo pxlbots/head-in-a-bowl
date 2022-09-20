@@ -77,7 +77,7 @@ contract PxlbotCryo is ERC721, Ownable, Pausable {
   function request(address _contract, uint256 tokenId) external whenNotPaused {
     require(
       fulfilled[_contract][tokenId] == false,
-      'This merge has already been generated.'
+      'This cryo has already been generated.'
     );
     require(
       IERC721(_contract).ownerOf(tokenId) == _msgSender(),
@@ -96,7 +96,6 @@ contract PxlbotCryo is ERC721, Ownable, Pausable {
   function getNextRequest()
     external
     view
-    onlyOwner
     returns (address _contract, uint256 token_id)
   {
     require(total_requests > 0, 'No requests to process');

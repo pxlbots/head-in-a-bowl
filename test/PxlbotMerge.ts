@@ -76,7 +76,7 @@ describe('PxlbotCryo', function () {
     await contract.connect(addr1).request(address, mock_id)
     await contract.fulfill(0, 'https://foo/bar')
     await expect(contract.request(address, mock_id)).to.be.revertedWith(
-      'This merge has already been generated.',
+      'This cryo has already been generated.',
     )
   })
   it('Should not allow request to be fulfilled twice', async function () {
