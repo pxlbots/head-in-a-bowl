@@ -41,16 +41,16 @@ const config: HardhatUserConfig = {
     artifacts: './artifacts',
   },
   networks: {
-    /*ganache: {
-      chainId: Number(process.env.COLLECTIBLE_LOCAL_CHAIN),
-      url: process.env.COLLECTIBLE_LOCAL_RPC,
+    ganache: {
+      chainId: Number(process.env.COLLECTIBLE_LOCAL_CHAIN) || 1338,
+      url: process.env.COLLECTIBLE_LOCAL_RPC || 'http://127.0.0.1:7545',
     },
     goerli: {
       live: true,
       chainId: 5,
       url: 'https://eth-goerli.g.alchemy.com/v2/FK69QLNIkH6Nl5Cqk5LuecaLy3-WvQQk',
       accounts: [process.env.GOERLI_PRIVATE_KEY],
-    },*/
+    },
     ethereum: {
       live: true,
       chainId: 1,
