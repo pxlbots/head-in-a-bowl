@@ -27,10 +27,12 @@ task('set-approved-contract', 'Sets the status of a contract')
         const { label, value } = contracts[i]
         let isApproved = await merge.approved_contracts(value)
         if (!isApproved) {
-          console.log('approving contract...')
+          console.log(`approving ${label} contract...`)
           let result = await merge.setApprovedContract(value, true)
           await result.wait()
           console.log(`contract ${label} (${value}) is approved.`)
+        } else {
+          console.log(`${label} has already been approved.`)
         }
       }
     } else {
