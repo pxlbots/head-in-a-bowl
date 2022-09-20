@@ -18,7 +18,7 @@ const setupTest = deployments.createFixture(
     await deployments.fixture(['PxlbotCryo'])
     const { deployer } = await getNamedAccounts()
     let signers = await ethers.getSigners()
-    const PxlbotCryo = await ethers.getContract('PxlbotCryo', deployer)
+    const PxlbotCryo: any = await ethers.getContract('PxlbotCryo', deployer)
 
     const FakeToken: any = await ethers.getContractFactory('MockERC721')
     let mockContract = await FakeToken.deploy()
