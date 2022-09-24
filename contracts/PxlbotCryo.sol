@@ -109,9 +109,6 @@ contract PxlbotCryo is ERC721, Ownable, Pausable {
     require(request_id < requests_tokens.length, 'invalid request ID');
     uint256 tokenId = requests_tokens[request_id];
     address _contract = requests_contracts[request_id];
-    if (_contract === '0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB') {
-      
-    }
     mint(IERC721(_contract).ownerOf(tokenId), image_uri);
     //add to mapping
     fulfilled[requests_contracts[request_id]][
