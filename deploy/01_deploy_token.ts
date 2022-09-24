@@ -19,6 +19,13 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
       Strings: Strings.address,
     },
   })
+  if (hre.network.name === 'ganache') {
+    await deploy('CryptoPunks', {
+      from: deployer,
+      args: [],
+      log: true,
+    })
+  }
 }
 export default func
 func.dependencies = ['Base64', 'Strings']
